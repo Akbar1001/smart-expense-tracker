@@ -47,17 +47,15 @@ const getSummary = asyncHandler(async (req, res) => {
 
 // Placeholder for deleting the expenses
 const deleteExpense = asyncHandler(async (req, res) => {
-
-    const deletedExpense =
-        await expenseService.deleteExpense(req.params.id);
+    const deletedExpense = await expenseService.deleteExpense(req.params.id);
 
     res.status(200).json({
         success: true,
         message: "Expense deleted successfully",
-        data: deletedExpense
+        data: deletedExpense,
     });
-
 });
+
 
 module.exports = {
     addExpense,

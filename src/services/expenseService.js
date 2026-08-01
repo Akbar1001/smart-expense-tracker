@@ -60,6 +60,8 @@ async function getSummary(category) {
 }
 
 // Delete an expense
+const ApiError = require("../utils/ApiError");
+
 async function deleteExpense(id) {
     const expenses = await readExpenses();
 
@@ -68,7 +70,7 @@ async function deleteExpense(id) {
     );
 
     if (expenseIndex === -1) {
-        throw new Error("Expense not found");
+        throw new ApiError(404, "Expense not found");
     }
 
     const deletedExpense = expenses.splice(expenseIndex, 1)[0];

@@ -1,7 +1,10 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-const filePath = path.join(__dirname, "../data/expenses.json");
+const filePath =
+    process.env.DATA_FILE ||
+
+    path.join(__dirname, "../data/expenses.json");
 
 // Read expenses from JSON file
 async function readExpenses() {
