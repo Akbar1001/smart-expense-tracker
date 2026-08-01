@@ -6,6 +6,8 @@ const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
+const { swaggerUi, swaggerSpec } = require("./config/swagger");
+
 // Middleware
 app.use(express.json());
 
@@ -16,6 +18,12 @@ app.get("/", (req, res) => {
         message: "Smart Expense Tracker API is running"
     });
 });
+
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
 
 // Expense Routes
 app.use("/expenses", expenseRoutes);
