@@ -2,11 +2,18 @@ const express = require("express");
 
 const router = express.Router();
 
-// GET /expenses
-router.get("/", (req, res) => {
-    res.json({
-        message: "Get all expenses"
-    });
-});
+const expenseController = require("../controllers/expenseController");
+
+// Add Expense
+router.post("/", expenseController.addExpense);
+
+// Get All Expenses
+router.get("/", expenseController.getExpenses);
+
+// Get Summary
+router.get("/summary", expenseController.getSummary);
+
+// Delete Expense
+router.delete("/:id", expenseController.deleteExpense);
 
 module.exports = router;
