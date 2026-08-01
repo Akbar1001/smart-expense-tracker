@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "699c6a58-95e8-488a-a4fe-dfcb476dfbf1",
+    "title": "Pizza",
+    "amount": 450,
+    "category": "Food",
+    "date": "2026-08-02"
+  },
+  {
+    "id": "29dcdb8a-818f-426a-a2ad-89c9397aca8d",
+    "amount": 450,
+    "category": "Food",
+    "date": "2026-08-02"
+  }
+]

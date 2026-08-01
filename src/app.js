@@ -2,6 +2,8 @@ const express = require("express");
 
 const expenseRoutes = require("./routes/expenseRoutes");
 
+const errorHandler = require("./middleware/errorHandler");
+
 const app = express();
 
 // Middleware
@@ -17,5 +19,7 @@ app.get("/", (req, res) => {
 
 // Expense Routes
 app.use("/expenses", expenseRoutes);
+
+app.use(errorHandler);
 
 module.exports = app;
